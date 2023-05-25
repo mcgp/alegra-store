@@ -13,7 +13,7 @@ import '../../domain/requests/reporte_ventas_request.dart';
 class ReporteHttp extends ReporteRepositories {
   @override
   Future<List<ReporteRequest>> reporteGeneral() async {
-    final url = '${Env.rutaApi}/getProducts';
+    final url = '${Env.rutaApiLocal}/getProducts';
 
     try {
       final res = await http.post(
@@ -37,7 +37,7 @@ class ReporteHttp extends ReporteRepositories {
 
   @override
   Future<ReporteRequest?> scannerProduct(String itemCode) async {
-    final url = '${Env.rutaApi}/articles?ItemCode=$itemCode';
+    final url = '${Env.rutaApiLocal}/articles?ItemCode=$itemCode';
 
     final res = await http.get(Uri.parse(url));
 
@@ -56,7 +56,7 @@ class ReporteHttp extends ReporteRepositories {
   @override
   Future<List<ReporteRequest>> reporteFiltrado(
       ReporteFiltroRequest filtro) async {
-    final url = '${Env.rutaApi}/getProducts';
+    final url = '${Env.rutaApiLocal}/getProducts';
 
     var body = json.encode(filtro.toJson());
 
@@ -83,7 +83,7 @@ class ReporteHttp extends ReporteRepositories {
 
   @override
   Future<List<CategoriaProductoRequest>> listaCategoriaReporte() async {
-    final url = '${Env.rutaApi}/categories';
+    final url = '${Env.rutaApiLocal}/categories';
 
     print("dentra a categorias");
 
@@ -128,7 +128,7 @@ class ReporteHttp extends ReporteRepositories {
   }
 
   Future<List<ReporteVentasRequest>> reportVentas(String mes) async {
-    final url = '${Env.rutaApi}/salesReport';
+    final url = '${Env.rutaApiLocal}/salesReport';
     final data = {'saleDate': mes};
     final responseJson = await sendRequest(url, data);
     return responseJson;

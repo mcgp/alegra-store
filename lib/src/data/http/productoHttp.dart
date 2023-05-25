@@ -12,7 +12,7 @@ import 'package:http/http.dart' as http;
 class ProductoHttp extends ProductoRepositories {
   @override
   Future<List<ProductoRequest>> listaProductos() async {
-    final url = '${Env.rutaApi}/getProducts';
+    final url = '${Env.rutaApiLocal}/getProducts';
 
     print("dentra a poductos");
 
@@ -37,7 +37,7 @@ class ProductoHttp extends ProductoRepositories {
 
   @override
   Future<bool> registrarProducto(ProductoRequest producto) async {
-    final url = '${Env.rutaApi}/products';
+    final url = '${Env.rutaApiLocal}/products';
 
     var body = json.encode(producto.toJson());
 
@@ -63,7 +63,7 @@ class ProductoHttp extends ProductoRepositories {
 
   @override
   Future<List<CategoriaProductoRequest>> listaCategoriaProductos() async {
-    final url = '${Env.rutaApi}/categories';
+    final url = '${Env.rutaApiLocal}/categories';
 
     print("dentra a categorias");
 
@@ -90,7 +90,7 @@ class ProductoHttp extends ProductoRepositories {
 
   @override
   Future<List<ProductoRequest>> buscarProducto(String codeFiltro) async {
-    final url = '${Env.rutaApi}/getProducts';
+    final url = '${Env.rutaApiLocal}/getProducts';
 
     print("dentra a buscar producto");
 
@@ -118,7 +118,7 @@ class ProductoHttp extends ProductoRepositories {
 
   @override
   Future<bool> eliminarProducto(ProductoRequest producto) async {
-    final url = '${Env.rutaApi}/products';
+    final url = '${Env.rutaApiLocal}/products';
 
     var body = json.encode(producto.toJson());
 
@@ -142,7 +142,7 @@ class ProductoHttp extends ProductoRepositories {
 
   @override
   Future<bool> actualizarProducto(ProductoRequest producto) async {
-    final url = '${Env.rutaApi}/products';
+    final url = '${Env.rutaApiLocal}/products';
 
     var body = json.encode(producto.toJson());
 
